@@ -1,0 +1,32 @@
+.ui.equal.width.grid.container
+  .eight.wide.column
+    %h1 Products
+  .eight.wide.column
+    %a.ui.positive.labeled.icon.button{:href => '/products/new', :style => 'float: right;'}
+      New
+      %i.pause.icon
+  .sixteen.wide.column
+    .table-div{:style => 'overflow: scroll;'}
+      %table.ui.celled.table
+        %thead
+          %tr
+            %th Product name
+            %th Style
+            %th Brand
+            %th Actions
+        %tbody
+          - @products.each do |product|
+            %tr
+              %td= product.product_name
+              %td= product.style
+              %td= product.brand
+              %td
+                %a{:href => edit_product_path(product.id), :class => 'ui icon button primary'}
+                  %i{:class => 'pencil alternate icon'}
+                = link_to product, :method => :delete, :class => 'ui icon button red' do
+                  %i{:class => 'trash icon'}
+                
+  .sixteen.wide.column
+    .ui.pagination.menu
+      = will_paginate @products, :class => 'ui pagination menu'
+

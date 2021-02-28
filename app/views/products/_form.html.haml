@@ -1,0 +1,65 @@
+= form_for @product do |f|
+  - if @product.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+      %ul
+        - @product.errors.full_messages.each do |message|
+          %li= message
+
+  .ui.grid
+    .row
+      .two.wide.column
+        .field.ui.input.label
+          = f.label :product_name
+          %br
+          = f.text_field :product_name
+      .fourteen.wide.column
+        .field.ui.input.label
+          = f.label :admin_id
+          %br
+          %br
+          = f.label :admin_id, :value => current_user.name.titleize
+          = f.hidden_field(:admin_id, :value => current_user.id)
+    .row
+      .two.wide.column
+        .field.ui.input.label
+          = f.label :style
+          %br
+          = f.text_field :style
+      .fourteen.wide.column
+        .field.ui.input.label
+          = f.label :brand
+          %br
+          = f.text_field :brand
+    .row
+      .two.wide.column
+        .field.ui.input.label
+          = f.label :url
+          %br
+          = f.text_field :url
+      .fourteen.wide.column
+        .field.ui.input.label
+          = f.label :product_type
+          %br
+          = f.text_field :product_type
+    .row
+      .two.wide.column
+        .field.ui.input.label
+          = f.label :shipping_price
+          %br
+          = f.number_field :shipping_price
+      .fourteen.wide.column
+        .field.ui.input.label
+          = f.label :note
+          %br
+          = f.text_field :note
+    .row
+      .twelve.wide.column
+        .field.ui.input.label
+          = f.label :description
+          %br
+          = f.text_area :description, :rows => 10, :cols => 70
+    .row
+      .two.wide.column
+        .actions
+          = f.submit 'Save', :class => 'ui positive button'

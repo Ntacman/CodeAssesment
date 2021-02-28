@@ -1,0 +1,59 @@
+%h1 Orders
+%strong= "Total Orders: #{@total_order_count}"
+%br
+%strong= "Average Sale Total:#{number_to_currency(@avg_order_total)}"
+
+
+.filter
+  = form_tag orders_path, :method => :get do
+    .ui.input
+      = text_field_tag 'product_id_filter', nil, placeholder: 'Enter a Product ID'
+    %br
+    .ui.input
+      = text_field_tag 'sku_filter', nil, placeholder: 'Enter a SKU'
+    %br
+    .ui.input
+      = submit_tag 'Filter'
+%br
+
+.table-div{:style => 'overflow: scroll;'}
+  %table.ui.celled.table
+    %thead
+      %tr
+        %th.sorted.ascending Name
+        %th.sorted.ascending Email
+        %th.sorted.ascending Product
+        %th.sorted.ascending Color
+        %th.sorted.ascending Size
+        %th.sorted.ascending Order status
+        %th.sorted.ascending Total
+        %th.sorted.ascending Transaction
+        %th.sorted.ascending Shipper name
+        %th.sorted.ascending Tracking number
+    %tbody
+      - @orders.each do |order|
+        %tr
+          %td= order.name
+          %td= order.email
+          %td= order.product.product_name
+          %td= order.inventory.color
+          %td= order.inventory.size
+          %td= order.order_status
+          %td= order.total
+          %td= order.transaction_id
+          %td= order.shipper_name
+          %td= order.tracking_number
+  %br
+  %strong="Paid Orders:#{@paid_count}"
+  %br
+  %strong="Open Orders:#{@open_count}"
+  %br
+  %strong="Shipped Orders:#{@shipped_count}"
+  %br
+  %strong="Fulfilled Orders:#{@fulfilled_count}"
+  %br
+  %strong="Pending Orders:#{@pending_count}"
+
+  .ui.pagination.menu
+    = will_paginate @orders, :class => 'ui pagination menu'
+  

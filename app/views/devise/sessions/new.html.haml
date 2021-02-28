@@ -1,0 +1,14 @@
+%h2 Log in
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .field.ui.input.label
+    = f.label :email
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  %br
+  %br
+  .field.ui.input.label
+    = f.label :password
+    = f.password_field :password, autocomplete: "current-password"
+  %br
+  %br
+  .actions
+    = f.submit "Log in"

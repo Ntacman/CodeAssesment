@@ -1,0 +1,51 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 
+  street_address: MyString
+  apartment: MyString
+  city: MyString
+  state: MyString
+  country_code: MyString
+  zip: MyString
+  phone_number: MyString
+  email: MyString
+  name: MyString
+  order_status: MyString
+  payment_ref: MyString
+  transaction_id: MyString
+  payment_amt_cents: 
+  ship_charged_cents: 
+  ship_cost_cents: 
+  subtotal_cents: 
+  total_cents: 
+  shipper_name: MyString
+  payment_date: 2021-02-25 19:52:51
+  shipped_date: 2021-02-25 19:52:51
+  tracking_number: MyString
+  tax_total_cents: 
+
+two:
+  product_id: 
+  street_address: MyString
+  apartment: MyString
+  city: MyString
+  state: MyString
+  country_code: MyString
+  zip: MyString
+  phone_number: MyString
+  email: MyString
+  name: MyString
+  order_status: MyString
+  payment_ref: MyString
+  transaction_id: MyString
+  payment_amt_cents: 
+  ship_charged_cents: 
+  ship_cost_cents: 
+  subtotal_cents: 
+  total_cents: 
+  shipper_name: MyString
+  payment_date: 2021-02-25 19:52:51
+  shipped_date: 2021-02-25 19:52:51
+  tracking_number: MyString
+  tax_total_cents: 

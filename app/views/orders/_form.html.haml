@@ -1,0 +1,79 @@
+= form_for @order do |f|
+  - if @order.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      %ul
+        - @order.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :product_id
+    = f.text_field :product_id
+  .field
+    = f.label :street_address
+    = f.text_field :street_address
+  .field
+    = f.label :apartment
+    = f.text_field :apartment
+  .field
+    = f.label :city
+    = f.text_field :city
+  .field
+    = f.label :state
+    = f.text_field :state
+  .field
+    = f.label :country_code
+    = f.text_field :country_code
+  .field
+    = f.label :zip
+    = f.text_field :zip
+  .field
+    = f.label :phone_number
+    = f.text_field :phone_number
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :order_status
+    = f.text_field :order_status
+  .field
+    = f.label :payment_ref
+    = f.text_field :payment_ref
+  .field
+    = f.label :transaction_id
+    = f.text_field :transaction_id
+  .field
+    = f.label :payment_amt_cents
+    = f.text_field :payment_amt_cents
+  .field
+    = f.label :ship_charged_cents
+    = f.text_field :ship_charged_cents
+  .field
+    = f.label :ship_cost_cents
+    = f.text_field :ship_cost_cents
+  .field
+    = f.label :subtotal_cents
+    = f.text_field :subtotal_cents
+  .field
+    = f.label :total_cents
+    = f.text_field :total_cents
+  .field
+    = f.label :shipper_name
+    = f.text_field :shipper_name
+  .field
+    = f.label :payment_date
+    = f.datetime_select :payment_date
+  .field
+    = f.label :shipped_date
+    = f.datetime_select :shipped_date
+  .field
+    = f.label :tracking_number
+    = f.text_field :tracking_number
+  .field
+    = f.label :tax_total_cents
+    = f.text_field :tax_total_cents
+  .actions
+    = f.submit 'Save'

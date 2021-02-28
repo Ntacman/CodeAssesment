@@ -1,0 +1,40 @@
+%h1 Inventory
+
+.filter
+  = form_tag inventories_path, :method => :get do
+    .ui.input
+      = text_field_tag 'product_id_filter', nil, placeholder: 'Enter a Product ID'
+    %br
+    .ui.input
+      = text_field_tag 'sku_filter', nil, placeholder: 'Enter a SKU'
+    .u.input
+      = number_field_tag 'quantity_threshold_filter', nil, placeholder: 0
+    .ui.input
+      = submit_tag 'Filter'
+%br
+
+.table-div{:style => 'overflow: scroll;'}
+  %table.ui.celled.table
+    %thead
+      %tr
+        %th Product
+        %th Sku
+        %th Quantity
+        %th Color
+        %th Size
+        %th Price
+        %th Cost
+
+    %tbody
+      - @inventories.each do |inventory|
+        %tr
+          %td= inventory.product.product_name
+          %td= inventory.sku
+          %td= inventory.quantity
+          %td= inventory.color
+          %td= inventory.size
+          %td= inventory.price
+          %td= inventory.cost
+.sixteen.wide.column
+  .ui.pagination.menu
+    = will_paginate @products, :class => 'ui pagination menu'

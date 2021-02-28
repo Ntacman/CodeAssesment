@@ -1,0 +1,75 @@
+%p#notice= notice
+
+%p
+  %b Product:
+  = @order.product_id
+%p
+  %b Street address:
+  = @order.street_address
+%p
+  %b Apartment:
+  = @order.apartment
+%p
+  %b City:
+  = @order.city
+%p
+  %b State:
+  = @order.state
+%p
+  %b Country code:
+  = @order.country_code
+%p
+  %b Zip:
+  = @order.zip
+%p
+  %b Phone number:
+  = @order.phone_number
+%p
+  %b Email:
+  = @order.email
+%p
+  %b Name:
+  = @order.name
+%p
+  %b Order status:
+  = @order.order_status
+%p
+  %b Payment ref:
+  = @order.payment_ref
+%p
+  %b Transaction:
+  = @order.transaction_id
+%p
+  %b Payment amt cents:
+  = @order.payment_amt_cents
+%p
+  %b Ship charged cents:
+  = @order.ship_charged_cents
+%p
+  %b Ship cost cents:
+  = @order.ship_cost_cents
+%p
+  %b Subtotal cents:
+  = @order.subtotal_cents
+%p
+  %b Total cents:
+  = @order.total_cents
+%p
+  %b Shipper name:
+  = @order.shipper_name
+%p
+  %b Payment date:
+  = @order.payment_date
+%p
+  %b Shipped date:
+  = @order.shipped_date
+%p
+  %b Tracking number:
+  = @order.tracking_number
+%p
+  %b Tax total cents:
+  = @order.tax_total_cents
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

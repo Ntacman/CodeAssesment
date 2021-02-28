@@ -1,0 +1,45 @@
+%p#notice= notice
+
+%p
+  %b Product:
+  = @inventory.product_id
+%p
+  %b Quantity:
+  = @inventory.quantity
+%p
+  %b Color:
+  = @inventory.color
+%p
+  %b Size:
+  = @inventory.size
+%p
+  %b Weight:
+  = @inventory.weight
+%p
+  %b Price cents:
+  = @inventory.price_cents
+%p
+  %b Sale price cents:
+  = @inventory.sale_price_cents
+%p
+  %b Cost cents:
+  = @inventory.cost_cents
+%p
+  %b Sku:
+  = @inventory.sku
+%p
+  %b Length:
+  = @inventory.length
+%p
+  %b Width:
+  = @inventory.width
+%p
+  %b Height:
+  = @inventory.height
+%p
+  %b Note:
+  = @inventory.note
+
+= link_to 'Edit', edit_inventory_path(@inventory)
+\|
+= link_to 'Back', inventories_path

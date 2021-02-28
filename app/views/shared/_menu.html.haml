@@ -1,0 +1,11 @@
+.ui.vertical.fluid.menu
+  %a{:class => "#{current_class_button?('/products')} item", :href => '/products'}
+    Products
+    .ui{:class => "#{current_class_label?('/products')} label"}= current_user.blank? ? 0 : current_user.products.count
+  %a{:class => "#{current_class_button?('/orders')} item", :href => '/orders'}
+    Orders
+    .ui{:class => "#{current_class_label?('/orders')} label"}= current_user.blank? ? 0 : current_user.orders.count
+  %a{:class => "#{current_class_button?('/inventories')} item", :href => '/inventories'}
+    Inventory
+    .ui{:class => "#{current_class_label?('/inventories')} label"}= current_user.blank? ? 0 : current_user.inventories.count
+  = link_to "Logout", destroy_user_session_path, :method => :delete, :class => 'item'
