@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     orders = orders.joins(:inventory).where(:inventory => {:product_id => params['product_id_filter']}) if params['product_id_filter'].present?
     orders = orders.joins(:inventory).where(:inventory => {:sku => params['sku_filter']}) if params['sku_filter'].present?
 
-    @orders = orders.paginate(page: params[:page], per_page: 10).order(:name)
+    @orders = orders.paginate(page: params[:page], per_page: 10).order(:product_name)
 
     @avg_order_total = orders.map {|order| order.total.amount}.inject(&:+)
     @avg_order_total = 0 if @avg_order_total.blank?
