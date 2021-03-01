@@ -4,7 +4,7 @@ class InventoriesController < ApplicationController
 
   # GET /inventories or /inventories.json
   def index
-    @inventories = current_user.inventories.paginate(page: params[:page], per_page: 10).order(:product_id)
+    @inventories = current_user.inventories.paginate(page: params[:page], per_page: 10).order(:product_name)
     @inventories = @inventories.where(:product_id => params['product_id_filter']) if params['product_id_filter'].present?
     @inventories = @inventories.where(:sku => params['sku_filter']) if params['sku_filter'].present?
     @inventories = @inventories.where('quantity <= ?', params['quantity_threshold_filter']) if params['quantity_threshold_filter'].present?
